@@ -34,6 +34,12 @@
       <img src="assets/imgs/slide2.jpg" (click)="content()">
     </ion-slide>
   </ion-slides>
+    <!--轮播图-->
+    <!--<ion-slides class="slide" loop="true" pager="true" *ngIf="len>=1" autoplay="1000">
+        <ion-slide  *ngFor="let item of lunbo;let i = index;" class="slide">
+          <img src="{{lunbo[i].sImg}}" (click)="content(lunbo[i].id)">
+        </ion-slide>
+    </ion-slides>-->
 </ion-header>
 
 
@@ -41,11 +47,11 @@
   <!--一些服务-->
   <ion-row text-center> 
     <ion-col>
-        <button ion-button><ion-icon name="clipboard" ></ion-icon></button><p>小区公告</p><p>&nbsp;</p>
+        <button ion-button (click)="annou()"><ion-icon name="clipboard" ></ion-icon></button><p>小区公告</p><p>&nbsp;</p>
       </ion-col> 
      
-      <ion-col><button ion-button><ion-icon name="construct"></ion-icon></button><p>坏事报修</p><p>&nbsp;</p></ion-col> 
-      <ion-col><button ion-button><ion-icon name="mail-open"></ion-icon></button><p>投诉建议</p><p>&nbsp;</p></ion-col> 
+      <ion-col><button ion-button (click)="repair()"><ion-icon name="construct"></ion-icon></button><p>坏事报修</p><p>&nbsp;</p></ion-col> 
+      <ion-col><button ion-button (click)="suggest ()"><ion-icon name="mail-open"></ion-icon></button><p>投诉建议</p><p>&nbsp;</p></ion-col> 
   </ion-row> 
 
 
@@ -123,6 +129,24 @@
       <p class="p2"><ion-icon ios="ios-eye" md="md-eye"></ion-icon>370<button ion-button outline item-end  color="danger"  style="float:right">攻略</button></p>
     </ion-item>
   </ion-list>
+	<!--内容-->
+  <!--<ion-list class="index-list" (click)="content(val[i].id)" *ngFor="let item of val;let i = index;">
+    <h6 style="padding-left:16px;margin:5px 0px">{{val[i].stitle}}</h6>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="{{val[i].sImg}}" class="thumb-img">
+      </ion-thumbnail>
+      <p class="p1">{{val[i].discription}}</p>
+      <p class="p2"><ion-icon ios="ios-eye" md="md-eye"></ion-icon>{{val[i].clickNum}}<button ion-button outline item-end  color="primary"  style="float:right">{{val[i].tags[0].name}}</button></p>
+    </ion-item>
+  </ion-list>-->
+
+
+
+
+
+
+
 
     <!--上拉加载
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

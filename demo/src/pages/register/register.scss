@@ -7,7 +7,7 @@ page-register {
         // height:80px;
         border-radius:20px;
         margin-left:40%;
-        margin-top:10%;
+        margin-top:30%;
     }
     .item1{
         float: right;
@@ -33,18 +33,32 @@ page-register {
     .btn2{
         position: relative;
         left: -55px;
-        top: 130px;
+        top: 110px;
         width: 45px;
         height: 45px;
         vertical-align:bottom;
     }
     .btn5{
         position: relative;
-        top: 180px;
+        top: 165px;
         left: -110px;
         width: 45px;
         height: 45px;
         vertical-align:bottom;
     }
-
+    .btn4{
+        background-color: #ffcc33;
+        border:none;
+        color:white;
+    }
+    .btn3{
+        background-color: white;
+        border:1px solid #ffcc33;
+        color:#ffcc33;
+        height: 40px;
+        font-size: 16px;
+        position: relative;
+        left: 30px;
+        
+    }
 }

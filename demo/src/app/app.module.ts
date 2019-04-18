@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -14,7 +14,9 @@ import { MyPage } from '../pages/my/my';
 import { SettingPage } from '../pages/setting/setting';
 import { CommunityPage } from '../pages/community/community';
 import { LifeservicesPage } from '../pages/lifeservices/lifeservices';
-
+import {ForgetpasswordPage} from '../pages/forgetpassword/forgetpassword';
+import {AnnouncementPage} from '../pages/announcement/announcement';
+import {RepairPage} from '../pages/repair/repair';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -34,10 +36,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingPage,
     CommunityPage,//社区
     LifeservicesPage,//生活服务
+    ForgetpasswordPage,//忘记密码
+    AnnouncementPage,//小区公告列表
+    RepairPage,//坏事报修列表
+
+
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,6 +61,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingPage,
     CommunityPage,
     LifeservicesPage,
+    ForgetpasswordPage,
+    AnnouncementPage,
+    RepairPage,
   ],
   providers: [
     StatusBar,

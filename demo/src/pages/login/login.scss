@@ -1,12 +1,11 @@
 page-login {
     
     .logo1{
-        top: 62px;
-      
+        top: 162px;
         width:20%;
         border-radius:20px;
         margin-left:40%;
-        margin-top:10%;
+        margin-top:20%;
     }
     .item1{
         float: right;
@@ -23,8 +22,8 @@ page-login {
     }
     .btn2{
         position: relative;
-        left: -60px;
-        top: 125px;
+        left: -53px;
+        top: 110px;
         width: 45px;
         height: 45px;
     }
@@ -32,20 +31,28 @@ page-login {
         height: 40px;
         font-size: 16px;
         position: relative;
-        left: 40px;
+        left: 30px;
         top: 40px;
+        background-color: #ffcc33;
+        border:none;
+        color:white;
     }
     .btn4{
         height: 40px;
         font-size: 16px;
         position: relative;
-        left: 40px;
+        left: 30px;
         top: 40px;
+        background-color: white;
+        border:1px solid #ffcc33;
+        color:#ffcc33;
+        
     }
     .span1{
         font-size: 16px;
         position: relative;
-        left: 180px;
-        top: 40px;
+        left: 150px;
+        top: 50px;
     }
+
 }

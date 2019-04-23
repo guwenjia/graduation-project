@@ -8,15 +8,19 @@
       <button ion-button clear item-start style="color:#999099;" class="btn1"><ion-icon ios="ios-person" md="md-person"></ion-icon></button>
     <ion-item class="item1">
       <ion-label color="#999099;">用户名</ion-label>
-      <ion-input id="username" (input)="changeUnm($event)" [value]="username"></ion-input>
+      <ion-input id="username"  [value]="username" [(ngModel)]="userna"></ion-input><!--(input)="changeUnm($event)"-->
     </ion-item>
+
+
     <button ion-button clear item-start style="color:#999099;" class="btn2"><ion-icon ios="ios-unlock" md="md-unlock"></ion-icon></button>
     <ion-item class="item1">
       <ion-label color="#999099;" >密码</ion-label>
-      <ion-input type="password" (input)="changePwd($event)" [value]="password"></ion-input>
+      <ion-input type="password" [value]="password"  [(ngModel)]="pas"></ion-input><!--(input)="changePwd($event)"-->
     </ion-item>
+
+
     <button ion-button round  color="#ffcc33;" style="width:70%;margin-left:7%;" class="btn3" (click)="request()" >登录</button>
-    <button ion-button round outline color="#ffcc33;" style="width:70%;display:block;margin-left:7%;" class="btn4"  (click)="goReg()">注册</button>
+    <button ion-button round outline color="#ffcc33;" style="width:70%;display:block;margin-left:7%;" class="btn4"  (click)="goReg()">没有账号？注册</button>
     <span class="span1" ><a href="javascript:;" style="color:#ffcc33;" (click)="forgetpw()">忘记密码</a></span>
   </ion-list>  
 </ion-content>

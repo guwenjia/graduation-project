@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule,JsonpModule } from '@angular/http';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -17,6 +18,14 @@ import { LifeservicesPage } from '../pages/lifeservices/lifeservices';
 import {ForgetpasswordPage} from '../pages/forgetpassword/forgetpassword';
 import {AnnouncementPage} from '../pages/announcement/announcement';
 import {RepairPage} from '../pages/repair/repair';
+import {LifehousePage} from '../pages/lifehouse/lifehouse';
+import {RepaircommitPage} from '../pages/repaircommit/repaircommit';
+import {SuggestPage} from '../pages/suggest/suggest';
+import {SuggestcommitPage} from '../pages/suggestcommit/suggestcommit';
+import {CommcreatPage} from '../pages/commcreat/commcreat';
+//import {AnnoundetailPage} from '../pages/announdetail/announdetail';
+//import {CommdetailPage} from '../pages/commdetail/commdetail';
+import { Http,Jsonp} from "@angular/http"; 
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -39,13 +48,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ForgetpasswordPage,//忘记密码
     AnnouncementPage,//小区公告列表
     RepairPage,//坏事报修列表
-
-
+    RepaircommitPage,//坏事报修提交
+    //AnnoundetailPage,//公告详情
+    //生活服务详情CommdetailPage,
+    LifehousePage,//生活服务提交信息
+    SuggestPage,//投诉建议
+    SuggestcommitPage,////投诉建议提交信息
+    CommcreatPage,//发表动态页
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    JsonpModule,
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,6 +80,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ForgetpasswordPage,
     AnnouncementPage,
     RepairPage,
+    //AnnoundetailPage,
+    //CommdetailPage,
+    LifehousePage,
+    RepaircommitPage,
+    SuggestPage,
+    SuggestcommitPage,
+    CommcreatPage,
   ],
   providers: [
     StatusBar,

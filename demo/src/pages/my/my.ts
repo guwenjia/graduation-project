@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient,} from "@angular/common/http";
+import { Http,Jsonp, Headers} from '@angular/http'; 
+import { ModalController } from 'ionic-angular';
 import { SettingPage } from '../setting/setting';
 
-/**
- * Generated class for the MyPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -15,19 +13,31 @@ import { SettingPage } from '../setting/setting';
   templateUrl: 'my.html',
 })
 export class MyPage {
+  user;
+  arr=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ionViewWillEnter() {
+    this.getCon();
   }
-show="information"
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MyPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,
+    public jsonp:Jsonp,public modalCtrl:ModalController,) {
   }
-items=[,,,];
-item=[{
-  focus:100,
-  fans:20,
-  favor:100,
-}];
+
+  getCon(){ 
+    this.user=localStorage.getItem('userid');
+    this.http.get('http://140.143.6.115:80/home/user/show?id='+this.user)
+    .subscribe( data=>{ 
+
+      this.arr=(data['data']);
+      console.log(this.arr);
+    })
+
+  }
+
+
+
+
+
 setting(){
   this.navCtrl.push(SettingPage);
 }

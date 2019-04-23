@@ -21,134 +21,74 @@
 
 
 <ion-content>
-<ion-list>
-   <img src="assets/imgs/bg.jpg" alt="" class="bg"> 
-</ion-list>
-<ion-list style="border-bottom:1px solid #eeeeee;margin-bottom:0px;">
- 
-  <ion-grid>
-      <ion-row>
-        <ion-col col-5 text-center>
-            <img src="assets/imgs/touxiang.jpg" alt="" class="touxiang">
-            <p class="name">travel</p>
-        </ion-col>
-        <ion-col col-7>
-         <ion-row>
-           <ion-col text-center style="margin-top:-20px;">关注</ion-col>
-           <ion-col text-center style="margin-top:-20px;">粉丝</ion-col>
-           <ion-col text-center style="margin-top:-20px;">获赞</ion-col>
-         </ion-row>
-         <ion-row *ngFor="let item of item;">
-          <ion-col text-center>{{item.focus}}</ion-col>
-          <ion-col text-center>{{item.fans}}</ion-col>
-          <ion-col text-center>{{item.favor}}</ion-col>
-        </ion-row>
-        </ion-col>
-      
-      </ion-row>
-      </ion-grid>
-</ion-list>
+    <div class="backcard" style="background-image: url(assets/imgs/288.jpg)">
+      <div class="touxiang">
+          <img src="assets/imgs/touxiang1.jpg"><!--用户头像-->
+       
+      </div>
+      <h3>{{arr['username']}}</h3>
+    </div>
 <ion-list>
           <ion-segment [(ngModel)]="show"> 
               <ion-segment-button value='information' class="seg-btn"> 
-                 游记
+                 报修
               </ion-segment-button> 
-              <ion-segment-button value="server" class="seg-btn"> 
-                 相册
+              <ion-segment-button value="advise" class="seg-btn"> 
+                 建议
               </ion-segment-button> 
-              <ion-segment-button value="star" class="seg-btn"> 
-                 
-                      我的收藏
+              <ion-segment-button value="star" class="seg-btn">  
+                  服务
                </ion-segment-button> 
           </ion-segment>
 </ion-list>
 <div [ngSwitch]="show">
      
-     <ion-list  *ngSwitchCase="'information'">
-       <ion-icon name="md-time" style="margin-left:72px;font-size:25px;"></ion-icon>
-        <ion-item *ngFor="let items of items">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-2  text-center class="date-box">
-              <p class="date">3月5日</p>
-            </ion-col>
-            <ion-col col-10>
-              <ion-card class="content-box">
-                  <ion-item>
-                      <ion-avatar item-start>
-                        <img src="assets/imgs/touxiang.jpg">
-                      </ion-avatar>
-                      <h2>Marty McFly</h2>
-                      <p>November 5, 1955</p>
-                    </ion-item>
-                    
-                  <ion-card-content >
-                    <p class="text">Wait a minute. Wait a minute, Doc.Uhhh... Are you telling me that you built a time machine... out of
-                       a DeLorean?! Whoa. This is heavy.</p>
-                  </ion-card-content>
-                
-                  <ion-row>
-                    <ion-col>
-                      <button ion-button icon-left clear small>
-                        <ion-icon name="thumbs-up"></ion-icon>
-                        <div>12 Likes</div>
-                      </button>
-                    </ion-col>
-                    <ion-col>
-                      <button ion-button icon-left clear small>
-                        <ion-icon name="ios-text"></ion-icon>
-                        <div>4 Comments</div>
-                      </button>
-                    </ion-col>
-                  </ion-row>
-                
-                </ion-card>
-                 
+<!--报修-->
+<!--       <ion-list *ngSwitchCase="'information'" class="index-list" (click)="content(item.id)" *ngFor='let item of arr;let idx = index;'>
+          <h6 style="padding-left:16px;margin:5px 0px">{{item.title}}</h6>
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="{{item.cover}}" class="thumb-img">
+            </ion-thumbnail>
+            <p class="p1">{{item.content}}</p>
+          </ion-item>
+      </ion-list> -->
 
-                 
- 
 
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-       
-        {{items}}
-      </ion-item>
-     </ion-list>
-     <ion-list *ngSwitchCase="'server'">
-          <ion-list>
-            <ion-grid>
-              <ion-row>
-                <ion-col col-3 class="date-box">
-                 <p > 3月10日</p>
-                </ion-col>
-                <ion-col col-9>
-                  <ion-row>
-                    <ion-col>
-                    <img src="assets/imgs/touxiang.jpg" alt="">
-                    </ion-col>
-                    <ion-col>
-                      <img src="assets/imgs/touxiang.jpg" alt="">
-                    </ion-col>
-                    <ion-col>
-                      <img src="assets/imgs/touxiang.jpg" alt="">
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col>
-                    <img src="assets/imgs/touxiang.jpg" alt="">
-                    </ion-col>
-                    <ion-col>
-                      <img src="assets/imgs/touxiang.jpg" alt="">
-                    </ion-col>
-                    <ion-col>
-                      <img src="assets/imgs/touxiang.jpg" alt="">
-                    </ion-col>
-                  </ion-row>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-list>
-     </ion-list>
+  <!--建议-->   
+
+<!--         <ion-list *ngSwitchCase="'advise'" *ngSwitchCase="'information'" class="index-list" (click)="content(item.id)" *ngFor='let item of arr;let idx = index;'>
+            <h6 style="padding-left:16px;margin:5px 0px">{{item.title}}</h6>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="{{item.cover}}" class="thumb-img">
+              </ion-thumbnail>
+              <p class="p1">{{item.content}}</p>
+            </ion-item>
+        </ion-list> -->
+
+<!--服务-->
+  <ion-list class="index-list" (click)="content()" *ngSwitchCase="'server'">
+        
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/index-thumbnail1.png" class="thumb-img">
+      </ion-thumbnail>
+      <h6 style="padding-left:0px;margin:5px 0px">代取快递</h6>
+      <p class="p1">快递已被接收</p>
+      <!-- <button ion-button outline item-end  color="primary"  style="float:right">问答</button> -->
+    </ion-item>
+  </ion-list>
+<!--         <ion-list *ngSwitchCase="'server'" *ngSwitchCase="'information'" class="index-list" (click)="content(item.id)" *ngFor='let item of arr;let idx = index;'>
+            <h6 style="padding-left:16px;margin:5px 0px">{{item.title}}</h6>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="{{item.cover}}" class="thumb-img">
+              </ion-thumbnail>
+              <p class="p1">{{item.content}}</p>
+            </ion-item>
+        </ion-list> -->
+
+
 </div>
 </ion-content>

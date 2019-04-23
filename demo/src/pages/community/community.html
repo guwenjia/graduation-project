@@ -7,8 +7,8 @@
     </ion-buttons> -->
     <ion-title>社区广场</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only color="royal">
-        <ion-icon name="ios-search-outline"></ion-icon>
+      <button ion-button icon-only color="royal"  right (click)="add()">
+        <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -24,24 +24,22 @@
 
 </ion-header> -->
 <ion-content>
-<ion-card>
-
+<ion-card *ngFor='let item of arr;let i = index;' (click)='go(i)'><!--  -->
   <ion-item>
     <ion-avatar item-start class="touxiang">
-      <img src="../assets/imgs/touxiang1.jpg">
+      <img src="../assets/imgs/touxiang1.jpg"><!--用户头像-->
     </ion-avatar>
-    <h2>&nbsp;&nbsp;&nbsp;超级飞侠</h2>
+    <h2>&nbsp;&nbsp;&nbsp;{{item.users.username}}</h2>
 <!--地点<button ion-button icon-left clear small >
         <ion-icon name="md-pin"></ion-icon>
         <div>Tokyo Disneyland</div>
     </button> -->
   </ion-item>
   <ion-card-content>
-      <p>新家具，清新！</p>
+      <p>{{item.content}}</p>
+      <img src="{{item.cover}}" onerror="this.src='../assets/imgs/slide1.png'" >
   </ion-card-content>
-  <img src="../assets/imgs/slide3.jpg" class="tuijianimg">
-
-
+  <!-- <img src={{arr[i].cover}} class="tuijianimg"> -->
 
   <ion-row>
       <ion-col>&nbsp;</ion-col>
@@ -64,8 +62,7 @@
 
 </ion-card>
 
-<ion-card>
-
+<!-- <ion-card>
     <ion-item>
       <ion-avatar item-start class="touxiang">
         <img src="../assets/imgs/touxiang2.jpg">
@@ -74,12 +71,13 @@
 <!--地点   <button ion-button icon-left clear small >
           <ion-icon name="md-pin"></ion-icon>
           <div>HongKong</div>
-      </button> -->
+      </button> 
     </ion-item>
     <ion-card-content>
-        <p>
+      <p>{{val.content}}</p>
+        <!-- <p>
             这世界很大，可以让你经历的事情也很多。
-            你要知道，这世界有一千万张面孔，但唯有真正经历过，才能够看清他所存在的模样。</p>
+            你要知道，这世界有一千万张面孔，但唯有真正经历过，才能够看清他所存在的模样。</p> 
     </ion-card-content>
   
     <ion-row>
@@ -97,11 +95,11 @@
           <ion-icon name="ios-thumbs-up-outline"></ion-icon>
           <div>500</div>
         </button>
-      </ion-col> -->
+      </ion-col> 
 
     </ion-row>
   
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>
 

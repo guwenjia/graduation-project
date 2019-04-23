@@ -1,11 +1,27 @@
 <ion-header>
  <ion-navbar>
     <ion-title>坏事报修</ion-title>
+    <ion-buttons right (click)="openrepair()">
+      <button ion-button>
+          <ion-icon name="add-circle" color="dark" ></ion-icon>
+      </button>
+  </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <h2>{{val[i].title}}</h2>
-  <!-- <img src="{{val[i].cover}}" class="thumb-img"> -->
+  <ion-list class="index-list" *ngFor='let item of arr;let i = index;let j = index2;'>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/mess.jpg" class="thumb-img">
+      </ion-thumbnail>
+      <h6 style="padding-left:0px;margin:5px 0px">{{item['part']}}</h6>
+      <p class="p1">详情：{{item['description']}}</p>
+      <p class="p1">进度：{{item['state']}}</p>
+      <p class="p1">预约时间：{{item['repair_time']}}</p>
+      <!-- <button ion-button outline item-end  color="primary"  style="float:right">问答</button> -->
+    </ion-item>
+  </ion-list>
+
 </ion-content>

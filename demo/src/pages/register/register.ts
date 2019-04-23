@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { HttpClient } from '@angular/common/http';
 import { AlertController } from 'ionic-angular';
-
+import { Http,Jsonp, Headers} from '@angular/http'; 
 //import  * as $ from 'jquery';
 
 @IonicPage()
@@ -13,10 +13,10 @@ import { AlertController } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient, public alertCtrl:AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient, public alertCtrl:AlertController,public jsonp:Jsonp,) {
   }
 
-   username:string;
+  username:string;
   password:string;
   password1:string;
   headers;
@@ -36,16 +36,15 @@ export class RegisterPage {
   let url:string='http://140.143.6.115:80/auth/register';
   
   this.http.post(url,{
-  'userName': this.username,
-  'password': this.password,
-  //'confirmPassword':this.password1,
+  "username": this.username,
+  "password": this.password,
+  "re_password":this.password1,
   
 }).subscribe(data =>{
-  if(data['state']=="success")
-  {
-    this.navCtrl.push('LoginPage');
-  }
-  else console.log('error');
+    console.log(data);
+    this.navCtrl.push(LoginPage);
+  
+  //else console.log('error');
   /* else if(data['state']=="error")
   {
     //$('#reg,#log').removeAttr("disabled");

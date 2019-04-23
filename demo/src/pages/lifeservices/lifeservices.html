@@ -7,37 +7,38 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>生活服务</ion-title>
+    <ion-title>生活服务列表页</ion-title>
  
 
       <div class="selectlist">
-        <ion-buttons right>
+        <ion-buttons right (click)="openlist()">
             <button ion-button>
-                <ion-icon name="add-circle" color="dark"></ion-icon>
+                <ion-icon name="add-circle" color="dark" ></ion-icon>
             </button>
         </ion-buttons> 
-       <ion-select multiple = "true" cancelText = "Nah" okText = "好的！"> 
+ <!--       <ion-select multiple = "true" cancelText = "Nah" okText = "好的！"> 
          <ion-option value = "bacon" (click)="openlist()">代取快递</ion-option>
          <ion-option  value = "xcheese" >上门洗车</ion-option > 
          <ion-option  value = "peppers" >家庭保洁</ion-option > 
-       </ion-select> 
+       </ion-select>  -->
       </div>
  </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-    <ion-list class="index-list" (click)="content()">
-        
+    <ion-list class="index-list" *ngFor='let item of arr;let i = index;let j = index2;'>
         <ion-item>
           <ion-thumbnail item-start>
-            <img src="assets/imgs/index-thumbnail1.png" class="thumb-img">
+            <img src="assets/imgs/mess.jpg" class="thumb-img">
           </ion-thumbnail>
-          <h6 style="padding-left:0px;margin:5px 0px">代取快递</h6>
-          <p class="p1">快递已被接收</p>
+          <h6 style="padding-left:0px;margin:5px 0px">{{typetitle[i]}}</h6>
+          <p class="p1">进度：{{arr[i]['state']}}</p>
+          <p class="p1">预约时间：{{arr[i]['arrived_at']}}</p>
           <!-- <button ion-button outline item-end  color="primary"  style="float:right">问答</button> -->
         </ion-item>
       </ion-list>
-  
+    
+
 
 </ion-content>

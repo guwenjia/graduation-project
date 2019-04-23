@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { IonicPage, NavController, NavParams,ModalController,App,} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { HttpClient, } from '@angular/common/http';
+import { HttpModule,JsonpModule,} from "@angular/http";
+import { Http,Jsonp,Headers,RequestOptions } from "@angular/http"; 
+
+
 import { RegisterPage } from '../register/register';
 import {ForgetpasswordPage} from '../forgetpassword/forgetpassword';
 import { HomePage } from '../home/home';
+import {TabsPage} from '../tabs/tabs';
+
 
 @IonicPage()
 @Component({
@@ -13,76 +19,111 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,/* public http:HttpClient, */public alertCtrl:AlertController) {
+  ionViewWillEnter() {
+    this.judge();
   }
 
-  /* username:string;
-  password:string;
-  headers;
-  changePwd(e){
-    this.password=e.target.value;
-    }
-   changeUnm(e){
-     this.username=e.target.value;
-     }
-request(){
-$('#log,#reg').attr('disabled','true');
-let url:string='http://35.194.153.183:8080/api/users/doLogin';
-this.http.post(url,{
-  'userName': this.username,
-  'password': this.password
-})
-.subscribe(
-  data=> {
-   if(data['state']=="success")
-  {
-    this.navCtrl.push(TabsPage,{
-      name:this.username
-    });
-    let url:string='http://35.194.153.183:8080/api/users/getId?userName='+this.username;//获取用户id
-    this.http.get(url).subscribe(val=>{
-    localStorage.setItem('ID',val['id']);
-    localStorage.setItem('userName',this.username);
-    localStorage.setItem('login','true');
+  constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,public http:Http,public jsonp:Jsonp) {
 
-    })
   }
-  else if(data['state']=="error"&& data['type']=="ERROR_PARAMS")
-  {
-    $('#log,#reg').removeAttr('disabled');
-      let alert = this.alertCtrl.create({
-        title: "密码错误",
-        subTitle: data['message'],
-        buttons: ['OK']
+  userna:string;
+  pas:string;
+  arr=[];
+  userID='';
+  state:'';
+  name;
+    showPrompt0() {
+      let prompt = this.alertCtrl.create({
+        title: '登录',
+        message: "用户名不存在",
+     
+        buttons: ["关闭"]
       });
-      alert.present();
-
+       prompt.present();
+     }
+     
+     showPrompt1() {
+       let prompt = this.alertCtrl.create({
+         title: '登录',
+         message: "密码不正确",
+      
+         buttons: ["关闭"]
+       });
+        prompt.present();
+      }
+      showPrompt2(mess) {
+        let prompt = this.alertCtrl.create({
+          title:mess,
+          message: "登陆成功",
+       
+          buttons: ["确定"]
+        });
+         prompt.present();
+       }
+judge(){
+  if(localStorage.getItem('username')!==null){
+    this.navCtrl.push( HomePage);
   }
-  else if(data['state']=="error")
-  {
-    $('#log,#reg').removeAttr('disabled');
-    let alert = this.alertCtrl.create({
-      title: "请重新登录",
-      subTitle: data['message'],
-      buttons: ['OK']
-    });
-    alert.present();
-  }
+  else return;
 }
- );
+
+request(){
+  /* if(this.userna==='' || this.pas===''){
+      this.showPrompt0();
+       return;
+  } */
+         //JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串
+   this.http.post('http://140.143.6.115:80/auth/login',/* JSON.stringify */({'username':this.userna,'password':this.pas}))
+    .subscribe( 
+      data=>{
+        console.log(data['_body']);
+        //console.log(typeof(data['_body']));//string
+        this.arr=JSON.parse(data['_body']);
+
+       
+      if(this.arr['code']==0){
+       
+        localStorage.setItem('userid',this.arr['logined_id']);//存到本地
+        localStorage.setItem('username',this.arr['logined_username']);
+        console.log("111");
+        this.name=localStorage.getItem('username');
+        this.showPrompt2(this.name);
+        this.navCtrl.push( HomePage);
+      }
+      else{
+        console.log('error');
+        //this.showPrompt1();
+        //this.navCtrl.push( HomePage);
+      }
+ 
+
+ //     else if(data!==null){
+//        this.showPrompt1();
+//      }/* else if(
+//        localStorage.getItem("user") == data[0].logined_username){
+//        this.navCtrl.push(TabsPage);
+ //       this.app.getRootNavs()[0].setRoot(TabsPage);
+ //     } */else{
+ //       localStorage.setItem('user',data[0].logined_username);
+       //this.navCtrl.push(TabsPage);
+        //this.app.getRootNavs()[0].setRoot(TabsPage);
+  //    }
+    
+    } 
+    ); 
+   
+
+
 }
- */
 
 
 
-  request(){
-    this.navCtrl.push(HomePage);
-  }
-  goReg(){
+ 
+ goReg(){
     this.navCtrl.push(RegisterPage);
   }
   forgetpw(){
     this.navCtrl.push(ForgetpasswordPage);
   }
+} 
 
-}

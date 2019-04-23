@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { Platform, ToastController, App, Tabs } from 'ionic-angular';
@@ -8,7 +9,8 @@ import { Platform, ToastController, App, Tabs } from 'ionic-angular';
 //import { ThumbsupPage } from '../thumbsup/thumbsup';
 import { AnnouncementPage } from '../announcement/announcement';//小区公告page
 import {RepairPage} from '../repair/repair';//坏事报修
-
+import {SuggestPage} from '../suggest/suggest';
+import {TabsPage} from '../tabs/tabs';
 //@Component({
 //    selector: 'page-home',
 //    templateUrl: 'home.html'
@@ -175,15 +177,22 @@ items = [];
 //  count:'22727次浏览',
 //  btn:'问答'
 //}];
-
+ionViewWillEnter() {
+  this.gettabs();
+}
 constructor(public platform: Platform,
     public appCtrl: App,
-    public toastCtrl: ToastController,public modalCtrl:ModalController,public navCtrl: NavController) {
+    public toastCtrl: ToastController,public modalCtrl:ModalController,public navCtrl: NavController,) {
       this.platform.ready().then(() => {
         this.registerBackButtonAction(null);
       });
 }
-   //控制硬件返回按钮是否触发，默认false
+gettabs(){
+  this.navCtrl.setRoot(TabsPage);
+}  
+
+
+//控制硬件返回按钮是否触发，默认false
    backButtonPressed: boolean = false;
 //注册方法
 registerBackButtonAction(tabRef: Tabs): void {
@@ -280,5 +289,8 @@ annou(){
 repair(){
   console.log("go repair");
   this.navCtrl.push(RepairPage);//跳转到坏事报修页
+}
+suggest(){
+  this.navCtrl.push(SuggestPage);
 }
 }

@@ -11,9 +11,9 @@
 
 
 <ion-content  class="card-background-page" lazy-scroll>
-  <div class="hotnews">
+ <!--  <div class="hotnews">
     <h4 style="padding-left:16px;">相关攻略</h4>
-  </div>
+  </div> -->
   
   <!-- <ion-list class="index-list" (click)="content(val2[i].id)" *ngFor="let item of val2;let i = index;">
       <h6 style="padding-left:16px;margin:5px 0px">{{val2[i].title}}</h6>
@@ -25,13 +25,16 @@
         <p class="p2"><ion-icon ios="ios-eye" md="md-eye"></ion-icon>{{val2[i].published_at}}<button ion-button outline item-end  color="primary"  style="float:right">{{val2[i].tags[0].name}}</button></p>
       </ion-item>
     </ion-list> -->
-    <button ion-item *ngFor='let item of arr;let idx = index;' (click)='go(idx)'>
-      <ion-avatar item-left>
-        <img src="{{item.cover}}">
-      </ion-avatar>
-      <p class="txt1">{{item.title}}</p>
-      <p class="txt2">{{item.content}}</p>
-    </button>
+    <ion-list class="index-list" *ngFor='let item of arr;let idx = index;' (click)='go(idx)'>
+         <h6 style="padding-left:16px;margin:5px 0px">{{item.title}}</h6>
+         <ion-item>
+           <!--  <ion-thumbnail item-start>
+              <img src="{{item.cover}}" class="thumb-img">
+            </ion-thumbnail> -->
+      <p class="p1">{{item.content}}</p>
+      <p class="p2"><ion-icon ios="ios-eye" md="md-eye"></ion-icon>{{item.published_at}}</p>
+      </ion-item>
+    </ion-list>
 
 
 

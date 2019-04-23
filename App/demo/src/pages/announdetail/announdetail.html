@@ -1,0 +1,33 @@
+<!--
+  Generated template for the AnnoundetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>公告详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <!-- <div *ngFor="let item of arr;let id = index;" class="item">
+    <h2>{{item[id].title}}</h2>
+  </div> -->
+
+  <ion-card> 
+  <ion-card-header> 
+
+    <ion-card-title center>{{arr.title}}</ion-card-title> 
+  </ion-card-header> 
+
+  <ion-card-content> 
+    <p class="timestyle">{{arr.published_at}}</p>
+    <p class="timestyle">——————————————————————</p>
+    {{arr.cover}}
+    <p class="contentstyle">{{arr.content}}</p>
+  </ion-card-content> 
+</ion-card> 
+</ion-content>

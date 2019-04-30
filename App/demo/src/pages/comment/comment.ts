@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController,App, } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController,App,} from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
 import { Http,Jsonp,Headers,RequestOptions } from "@angular/http"; 
 import { HttpClient, } from '@angular/common/http';
 import { AlertController } from 'ionic-angular';
-import { LifeservicesPage } from '../lifeservices/lifeservices';
-
 /**
- * Generated class for the LifehousePage page.
+ * Generated class for the CommentPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,47 +13,39 @@ import { LifeservicesPage } from '../lifeservices/lifeservices';
 
 @IonicPage()
 @Component({
-  selector: 'page-lifehouse',
-  templateUrl: 'lifehouse.html',
-})
-export class LifehousePage {
+  selector: 'page-comment',
+  template:/* Url: 'comment.html', */
+    
+    '<ion-textarea autofocus placeholder = "请输入评论:" rows="6" cols="20" [(ngModel)]="comment" (ionInput)="descript($event)" value="环境特别好！" > </ion-textarea>  <button ion-button round  color="#ffcc33;" style="width:70%;margin-left:7%;" class="btn3" (click)="commit()" small>发表评论</button>'
 
+})
+export class CommentPage {
 
   constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,
-    public http:Http,public jsonp:Jsonp,) {
+    public http:Http,public jsonp:Jsonp,public popoverCtrl: PopoverController,) {
+      this.id = this.navParams.get('key1');
+      console.log(this.id);
   }
+  id;
   userid;
-  place;
-  gaming;
-  arrived_at;
-  description;
   arr=[];
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LifehousePage');
-  }
+  comment;
   showPrompt() {
     let prompt = this.alertCtrl.create({
-      title:'生活服务',
+      title:'评论',
       message: "提交成功",
    
       buttons: ["确定"]
     });
      prompt.present();
    }
-/*   radio(e){
-    //this.gaming=e.target.value;
-    console.log(this.gaming);
-  } 
-  time(e){
-    console.log(this.arrived_at)
-  } 
   descript(e){
-    console.log(this.description)
-  } */
+    console.log(this.comment);
+  }
+
   commit(){
     this.userid=localStorage.getItem('userid');
-    this.http.post('http://140.143.6.115:80/home/service/store',({'user_id':this.userid,'type':this.gaming,'user_address':'111'/* this.place */,
-    'arrived_at':this.arrived_at,'description':this.description}))
+    this.http.post('http://140.143.6.115:80/home/comment/store',({'user_id':this.userid,'content':this.comment,'topic_id':this.id}))
     .subscribe( 
       data=>{
 
@@ -63,9 +54,10 @@ export class LifehousePage {
         console.log(this.arr);
         if(this.arr['code']==0){
           this.showPrompt();
-          this.navCtrl.push(LifeservicesPage);
+          
         }
 
   })
 }
+
 }

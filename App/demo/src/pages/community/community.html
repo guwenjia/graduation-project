@@ -37,7 +37,7 @@
   </ion-item>
   <ion-card-content>
       <p>{{item.content}}</p>
-      <img src="{{item.cover}}" onerror="this.src='../assets/imgs/slide1.png'" >
+      <img src="{{item.cover}}" onerror="this.src='../assets/imgs/error.png'" >
   </ion-card-content>
   <!-- <img src={{arr[i].cover}} class="tuijianimg"> -->
 
@@ -47,8 +47,8 @@
       
     <ion-col>
       <button ion-button icon-left clear small>
-        <ion-icon name="ios-text-outline"></ion-icon>
-        <div>561</div>
+        <ion-icon name="paper-plane"></ion-icon>
+        <div>{{item.published_at}}</div>
       </button>
     </ion-col>
     <!-- <ion-col>

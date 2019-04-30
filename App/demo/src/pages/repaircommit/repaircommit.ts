@@ -29,15 +29,15 @@ export class RepaircommitPage {
 
 
 ionViewWillEnter() {
-  this.getdate();
+  /* this.getdate(); */
 }
 
 constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,
     public http:Http,public jsonp:Jsonp,) {
 }
-getdate(){
+/* getdate(){
   this.arrived_at = new Date().toISOString();
-}
+} */
   showPrompt() {
     let prompt = this.alertCtrl.create({
       title:'报修信息',
@@ -53,8 +53,18 @@ getdate(){
   commit(){
     
     this.userid=localStorage.getItem('userid');
-    this.http.post('http://140.143.6.115:80/home/repair/store',({'user_id':this.userid,'part':this.part,'address':this.place/* this.place */,
-    'image':'111','description':this.description,'repair_time':this.arrived_at}))
+    console.log(this.userid);
+    console.log(this.part);
+    console.log(this.place);
+    console.log(this.description);
+    console.log(this.arrived_at);
+    this.http.post('http://140.143.6.115:80/home/repair/store',({
+        'user_id':this.userid,
+        'part':this.part,
+        'address':this.place/* this.place */,
+        /* 'image':'111', */
+        'description':this.description,
+        'repair_time':this.arrived_at}))
     .subscribe( 
       data=>{
 

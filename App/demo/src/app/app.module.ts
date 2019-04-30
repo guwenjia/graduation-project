@@ -23,10 +23,11 @@ import {RepaircommitPage} from '../pages/repaircommit/repaircommit';
 import {SuggestPage} from '../pages/suggest/suggest';
 import {SuggestcommitPage} from '../pages/suggestcommit/suggestcommit';
 import {CommcreatPage} from '../pages/commcreat/commcreat';
+import {CommentPage} from '../pages/comment/comment';
 //import {AnnoundetailPage} from '../pages/announdetail/announdetail';
 //import {CommdetailPage} from '../pages/commdetail/commdetail';
 import { Http,Jsonp} from "@angular/http"; 
-
+import { PopoverController } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,6 +56,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SuggestPage,//投诉建议
     SuggestcommitPage,////投诉建议提交信息
     CommcreatPage,//发表动态页
+    CommentPage,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +89,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SuggestPage,
     SuggestcommitPage,
     CommcreatPage,
+    CommentPage,
   ],
   providers: [
     StatusBar,

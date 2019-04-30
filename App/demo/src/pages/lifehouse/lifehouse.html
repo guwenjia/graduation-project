@@ -1,9 +1,4 @@
-<!--
-  Generated template for the LifehousePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -13,24 +8,22 @@
 </ion-header>
       
 
-<ion-content padding>
-
-<!--     <ion-item class="item1">
-      <ion-label color="#999099;">选择服务</ion-label>
-      <ion-input id="place"  [value]="place" [(ngModel)]="place"></ion-input>
-    </ion-item> -->
-  
+<ion-content padding>  
     <ion-list>
-      <ion-item>
+      <!-- <ion-item>
           <ion-label>小区地址：</ion-label>
           <ion-input [(ngModel)]="place"></ion-input>
+      </ion-item> -->
+      <ion-item class="item1">
+          <ion-label color="#999099;">小区地址：</ion-label>
+          <ion-input id="place"  [value]="place" [(ngModel)]="place"></ion-input><!--(input)="changeUnm($event)"-->
       </ion-item>
 
 
 
       <ion-item>
         <ion-label>选择服务：</ion-label>
-        <ion-select  [(ngModel)]="gaming" (ionChange)="radio($event)">
+        <ion-select  [(ngModel)]="gaming" ><!-- (ionChange)="radio($event)" -->
           <ion-option value="house_clean">家庭保洁</ion-option>
           <ion-option value="express">代取快递</ion-option>
           <ion-option value="car_wash">上门洗车</ion-option>
@@ -39,11 +32,11 @@
 
   <ion-item> 
     <ion-label >预约日期：</ion-label> 
-    <ion-datetime  display-format = "MMM DD，YYYY HH：mm" [(ngModel)]="arrived_at" (ionChange)="time($event)"> </ion-datetime> 
+    <ion-datetime  display-format = "MMM DD，YYYY HH：mm" [(ngModel)]="arrived_at" > </ion-datetime><!-- (ionChange)="time($event)" --> 
   </ion-item>
 
   <ion-item> 
-      <ion-textarea autofocus placeholder = "备注:" rows="6" cols="20" [(ngModel)]="description" (ionInput)="descript($event)" > 
+      <ion-textarea placeholder = "备注:" rows="6" cols="20" [(ngModel)]="description" > <!-- (ionInput)="descript($event)"  -->
       </ion-textarea> 
   </ion-item>
  

@@ -1,30 +1,23 @@
-<!--
-  Generated template for the RepaircommitPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>提交报修信息</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-list>
     <ion-item>
         <ion-label>小区地址：</ion-label>
-        <ion-input type="text" [(ngModel)]="place" onblur="if(this.value == '')this.value='长瑞锦城';"
-         onclick="if(this.value == '长瑞锦城')this.value='';"></ion-input>
+        <ion-input type="text" [(ngModel)]="place"></ion-input>
+        <!-- onblur="if(this.value == '')this.value='长瑞锦城';"
+         onclick="if(this.value == '长瑞锦城')this.value='长瑞锦城';" value="长瑞锦城" -->
     </ion-item>
   
     <ion-item>
       <ion-label>报修分类：</ion-label>
       <ion-input [(ngModel)]="part" onblur="if(this.value == '')this.value='灯';" 
-      onclick="if(this.value == '灯')this.value='';" ></ion-input>
+      onclick="if(this.value == '灯')this.value='灯'" value="灯"></ion-input>
   </ion-item>
 
   
@@ -35,7 +28,7 @@
   
   <ion-item> 
     <ion-textarea type="text" placeholder = "备注:" rows="6" cols="20" [(ngModel)]="description" onblur="if(this.value == '')this.value='3号楼3单元3楼灯坏了！';"
-     onclick="if(this.value == '3号楼2单元3楼窗户坏了！')this.value='';"> 
+     onclick="if(this.value == '3号楼2单元3楼窗户坏了！')this.value=''" value='3号楼2单元3楼窗户坏了！'> 
     </ion-textarea> 
   </ion-item>
   

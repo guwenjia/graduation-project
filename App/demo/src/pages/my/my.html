@@ -14,7 +14,6 @@
               <ion-icon name="settings" ></ion-icon>
             </button>
           </ion-buttons>
-    
   </ion-navbar>
 
 </ion-header>
@@ -28,67 +27,78 @@
       </div>
       <h3>{{arr['username']}}</h3>
     </div>
-<ion-list>
-          <ion-segment [(ngModel)]="show"> 
-              <ion-segment-button value='information' class="seg-btn"> 
-                 报修
-              </ion-segment-button> 
-              <ion-segment-button value="advise" class="seg-btn"> 
-                 建议
-              </ion-segment-button> 
-              <ion-segment-button value="star" class="seg-btn">  
-                  服务
-               </ion-segment-button> 
-          </ion-segment>
-</ion-list>
-<div [ngSwitch]="show">
+    
+    <div>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="repair">
+          报修
+        </ion-segment-button>
+        <ion-segment-button value="suggest">
+          建议
+        </ion-segment-button>
+        <ion-segment-button value="service">
+          服务
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    
+    <div [ngSwitch]="pet">
+      <div *ngSwitchCase="'repair'">
+        <ion-list   *ngFor='let item of arr1;let i = index;'>
+          <ion-item >
+            <ion-thumbnail item-start>
+            <img src="assets/imgs/mess1.jpg" class="thumb-img">
+            </ion-thumbnail>
+            <h6 style="padding-left:0px;margin:5px 0px">{{item['part']}}</h6>
+            <p class="p1">详情：{{item['description']}}</p>
+            <p class="p1">进度：{{item['state']}}</p>
+            <p class="p1">预约时间：{{item['repair_time']}}</p>
+          </ion-item>
+       
+        </ion-list>
+      </div>
+
+      <div *ngSwitchCase="'suggest'">
+          <ion-list class="index-list" *ngFor='let item of arr2;let i = index;let j = index2;'>
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="assets/imgs/mess.jpg" class="thumb-img">
+                </ion-thumbnail>
+                <h6 style="padding-left:0px;margin:5px 0px">{{item['type']}}</h6>
+                <p class="p1">详情：{{item['description']}}</p>
+                <p class="p1">进度：{{item['state']}}</p>
+              </ion-item>
+            </ion-list>
+      </div>
+
+       <div *ngSwitchCase="'service'">
+          <ion-list class="index-list" *ngFor='let item of arr3;let i = index;let j = index2;'>
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="assets/imgs/mess.jpg" class="thumb-img">
+                </ion-thumbnail>
+                <h6 style="padding-left:0px;margin:5px 0px">{{typetitle[i]}}</h6>
+               <p class="p1">进度：{{arr3[i]['state']}}</p>
+                <p class="p1">预约时间：{{arr3[i]['arrived_at']}}</p>
+              </ion-item>
+            </ion-list>
+          </div>
+      </div>
      
 <!--报修-->
-<!--       <ion-list *ngSwitchCase="'information'" class="index-list" (click)="content(item.id)" *ngFor='let item of arr;let idx = index;'>
-          <h6 style="padding-left:16px;margin:5px 0px">{{item.title}}</h6>
-          <ion-item>
-            <ion-thumbnail item-start>
-              <img src="{{item.cover}}" class="thumb-img">
-            </ion-thumbnail>
-            <p class="p1">{{item.content}}</p>
-          </ion-item>
-      </ion-list> -->
+<!--   <ion-list *ngSwitchCase="'information'" (click)="getrepair()">
+    <ion-list class="index-list" *ngFor='let item of arr1;let i = index;' >
+      <ion-item>
+        <ion-thumbnail item-start>
+        <img src="assets/imgs/mess.jpg" class="thumb-img">
+        </ion-thumbnail>
+        <h6 style="padding-left:0px;margin:5px 0px">{{item['part']}}</h6>
+        <p class="p1">详情：{{item['description']}}</p>
+        <p class="p1">进度：{{item['state']}}</p>
+        <p class="p1">预约时间：{{item['repair_time']}}</p>
+      </ion-item>
+    </ion-list>
 
-
-  <!--建议-->   
-
-<!--         <ion-list *ngSwitchCase="'advise'" *ngSwitchCase="'information'" class="index-list" (click)="content(item.id)" *ngFor='let item of arr;let idx = index;'>
-            <h6 style="padding-left:16px;margin:5px 0px">{{item.title}}</h6>
-            <ion-item>
-              <ion-thumbnail item-start>
-                <img src="{{item.cover}}" class="thumb-img">
-              </ion-thumbnail>
-              <p class="p1">{{item.content}}</p>
-            </ion-item>
-        </ion-list> -->
-
-<!--服务-->
-  <ion-list class="index-list" (click)="content()" *ngSwitchCase="'server'">
-        
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/imgs/index-thumbnail1.png" class="thumb-img">
-      </ion-thumbnail>
-      <h6 style="padding-left:0px;margin:5px 0px">代取快递</h6>
-      <p class="p1">快递已被接收</p>
-      <!-- <button ion-button outline item-end  color="primary"  style="float:right">问答</button> -->
-    </ion-item>
-  </ion-list>
-<!--         <ion-list *ngSwitchCase="'server'" *ngSwitchCase="'information'" class="index-list" (click)="content(item.id)" *ngFor='let item of arr;let idx = index;'>
-            <h6 style="padding-left:16px;margin:5px 0px">{{item.title}}</h6>
-            <ion-item>
-              <ion-thumbnail item-start>
-                <img src="{{item.cover}}" class="thumb-img">
-              </ion-thumbnail>
-              <p class="p1">{{item.content}}</p>
-            </ion-item>
-        </ion-list> -->
-
-
-</div>
+  </ion-list> -->
+  
 </ion-content>

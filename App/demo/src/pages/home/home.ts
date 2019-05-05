@@ -11,6 +11,10 @@ import { AnnouncementPage } from '../announcement/announcement';//小区公告pa
 import {RepairPage} from '../repair/repair';//坏事报修
 import {SuggestPage} from '../suggest/suggest';
 import {TabsPage} from '../tabs/tabs';
+// import { HttpClient, } from '@angular/common/http';
+// import { HttpModule,JsonpModule,} from "@angular/http";
+// import { Http,Jsonp,Headers,RequestOptions } from "@angular/http"; 
+
 //@Component({
 //    selector: 'page-home',
 //    templateUrl: 'home.html'
@@ -156,33 +160,15 @@ templateUrl: 'home.html'
 export class HomePage {
 @ViewChild(Slides) slides: Slides;
 items = [];
-//items=[{
-//  title:'香港 | 拿上这份徒步攻略',
-//  img:'assets/imgs/index-thumbnail2.png',
-//  title2:'不要以为这又是一次shopping之旅',
-//  count:'22727次浏览',
-//  btn:'攻略'
-//},
-//{
-//  title:'有哪些地方可以拍出不一样的重庆？',
-//  img:'assets/imgs/index-thumbnail1.png',
-//  title2:'史上最全的27个机位，让你看到一个更全面的重庆',
-//  count:'22727次浏览',
-//  btn:'问答'
-//},
-//{
-//  title:'有哪些地方可以拍出不一样的重庆？',
-//  img:'assets/imgs/index-thumbnail1.png',
-//  title2:'史上最全的27个机位，让你看到一个更全面的重庆',
-//  count:'22727次浏览',
-//  btn:'问答'
-//}];
+arr=[];
 ionViewWillEnter() {
   this.gettabs();
+  //this. getCon();
 }
 constructor(public platform: Platform,
     public appCtrl: App,
-    public toastCtrl: ToastController,public modalCtrl:ModalController,public navCtrl: NavController,) {
+    public toastCtrl: ToastController,public modalCtrl:ModalController,public navCtrl: NavController,
+    /* public http:Http,public jsonp:Jsonp */) {
       this.platform.ready().then(() => {
         this.registerBackButtonAction(null);
       });
@@ -275,19 +261,22 @@ ngAfterViewInit() {
     this.slides.autoplay=1000;
 }
 
-//跳转
-// content(){
-//    this.navCtrl.push(ContentPage);
-//}
-//openlist(){
- //   this.navCtrl.push(NewslistPage);
-//} 
+//  //获取列表
+//  getCon(){
+//   this.http.get('http://140.143.6.115:80/home/notice/index?state=published' ).subscribe( data=>{ 
+//     this.arr=(data['data']);
+//     console.log(this.arr);
+//   } );
+// }
+
+
 annou(){
   console.log("go Announcement");
   this.navCtrl.push(AnnouncementPage);//跳转到小区公告页
 }
 repair(){
   console.log("go repair");
+  
   this.navCtrl.push(RepairPage);//跳转到坏事报修页
 }
 suggest(){

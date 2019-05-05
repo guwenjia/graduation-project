@@ -1,10 +1,10 @@
 <ion-header>
   <ion-navbar>
-<!--       <ion-buttons begin class="but1">
-      <button ion-button icon-only color="royal">
+  <ion-buttons begin class="but1">
+      <button ion-button icon-only color="royal" (click)="back()">
         <ion-icon name="ios-arrow-back"></ion-icon>
       </button>
-    </ion-buttons> -->
+    </ion-buttons>
     <ion-title>社区广场</ion-title>
     <ion-buttons end>
       <button ion-button icon-only color="royal"  right (click)="add()">
@@ -24,10 +24,11 @@
 
 </ion-header> -->
 <ion-content>
-<ion-card *ngFor='let item of arr;let i = index;' (click)='go(i)'><!--  -->
+
+<ion-card *ngFor='let item of val;let i = index;' (click)='go(i)'>
   <ion-item>
     <ion-avatar item-start class="touxiang">
-      <img src="../assets/imgs/touxiang1.jpg"><!--用户头像-->
+        <img src="{{item.users.cover}}" onerror="this.src='../assets/imgs/touxiang1.jpg'" ><!--用户头像-->
     </ion-avatar>
     <h2>&nbsp;&nbsp;&nbsp;{{item.users.username}}</h2>
 <!--地点<button ion-button icon-left clear small >
@@ -39,7 +40,6 @@
       <p>{{item.content}}</p>
       <img src="{{item.cover}}" onerror="this.src='../assets/imgs/error.png'" >
   </ion-card-content>
-  <!-- <img src={{arr[i].cover}} class="tuijianimg"> -->
 
   <ion-row>
       <ion-col>&nbsp;</ion-col>
@@ -59,7 +59,7 @@
     </ion-col> 点赞-->
 
   </ion-row>
-
+ 
 </ion-card>
 
 <!-- <ion-card>

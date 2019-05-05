@@ -23,7 +23,6 @@
     <div class="backcard" style="background-image: url(assets/imgs/288.jpg)">
       <div class="touxiang">
           <img src="assets/imgs/touxiang1.jpg"><!--用户头像-->
-       
       </div>
       <h3>{{arr['username']}}</h3>
     </div>
@@ -57,7 +56,6 @@
        
         </ion-list>
       </div>
-
       <div *ngSwitchCase="'suggest'">
           <ion-list class="index-list" *ngFor='let item of arr2;let i = index;let j = index2;'>
               <ion-item>
@@ -70,7 +68,6 @@
               </ion-item>
             </ion-list>
       </div>
-
        <div *ngSwitchCase="'service'">
           <ion-list class="index-list" *ngFor='let item of arr3;let i = index;let j = index2;'>
               <ion-item>
@@ -84,21 +81,5 @@
             </ion-list>
           </div>
       </div>
-     
-<!--报修-->
-<!--   <ion-list *ngSwitchCase="'information'" (click)="getrepair()">
-    <ion-list class="index-list" *ngFor='let item of arr1;let i = index;' >
-      <ion-item>
-        <ion-thumbnail item-start>
-        <img src="assets/imgs/mess.jpg" class="thumb-img">
-        </ion-thumbnail>
-        <h6 style="padding-left:0px;margin:5px 0px">{{item['part']}}</h6>
-        <p class="p1">详情：{{item['description']}}</p>
-        <p class="p1">进度：{{item['state']}}</p>
-        <p class="p1">预约时间：{{item['repair_time']}}</p>
-      </ion-item>
-    </ion-list>
 
-  </ion-list> -->
-  
 </ion-content>

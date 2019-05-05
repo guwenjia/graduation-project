@@ -23,7 +23,7 @@ import {RepaircommitPage} from '../pages/repaircommit/repaircommit';
 import {SuggestPage} from '../pages/suggest/suggest';
 import {SuggestcommitPage} from '../pages/suggestcommit/suggestcommit';
 import {CommcreatPage} from '../pages/commcreat/commcreat';
-import {CommentPage} from '../pages/comment/comment';
+// import {CommentPage} from '../pages/comment/comment';
 //import {AnnoundetailPage} from '../pages/announdetail/announdetail';
 //import {CommdetailPage} from '../pages/commdetail/commdetail';
 import { Http,Jsonp} from "@angular/http"; 
@@ -31,6 +31,20 @@ import { PopoverController } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MultiPickerModule } from 'ion-multi-picker';
+import { HomeDataProvider } from '../providers/home-data/home-data';
+
+//  import { ImagePicker } from '@ionic-native/image-picker/ngx';
+//  import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+ //import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+// import { File } from '@ionic-native/file/ngx';
+// import { Camera } from '@ionic-native/camera';
+//import { FileTransfer,FileTransferObject } from '@ionic-native/file-transfer';
+//import { File } from '@ionic-native/file';
+// import {Camera,CameraOptions} from "@ionic-native/camera";
+// import {ImagePicker} from "@ionic-native/image-picker";
+
+
 
 @NgModule({
   declarations: [
@@ -56,14 +70,21 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SuggestPage,//投诉建议
     SuggestcommitPage,////投诉建议提交信息
     CommcreatPage,//发表动态页
-    CommentPage,
+    // CommentPage,
+    
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: 'false', //隐藏子页面的tabs
+       backButtonText: '', //配置返回按钮
+　　　　backButtonIcon: '' //配置返回图标   
+　　}),
     HttpClientModule,
     JsonpModule,
     HttpModule,
+    MultiPickerModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -89,12 +110,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SuggestPage,
     SuggestcommitPage,
     CommcreatPage,
-    CommentPage,
+    // CommentPage,
   ],
   providers: [
+    
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HomeDataProvider,
+    // ImagePicker,
+    // Camera,
+    //FileTransfer,
+    //File,
+    
   ]
 })
 export class AppModule {}

@@ -1,6 +1,11 @@
 
 <ion-header>
   <ion-navbar>
+      <ion-buttons begin class="but1">
+          <button ion-button icon-only color="royal" (click)="back()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
     <ion-title>提交报修信息</ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,6 +14,8 @@
   <ion-list>
     <ion-item>
         <ion-label>小区地址：</ion-label>
+        <!-- <ion-multi-picker  [(ngModel)]="place" item-content [multiPickerColumns]="cityColumns" 
+        [cancelText]="'取消'" [doneText]="'完成'"></ion-multi-picker> -->
         <ion-input type="text" [(ngModel)]="place"></ion-input>
         <!-- onblur="if(this.value == '')this.value='长瑞锦城';"
          onclick="if(this.value == '长瑞锦城')this.value='长瑞锦城';" value="长瑞锦城" -->
@@ -16,8 +23,15 @@
   
     <ion-item>
       <ion-label>报修分类：</ion-label>
-      <ion-input [(ngModel)]="part" onblur="if(this.value == '')this.value='灯';" 
-      onclick="if(this.value == '灯')this.value='灯'" value="灯"></ion-input>
+          <ion-select  [(ngModel)]="part" ><!-- (ionChange)="radio($event)" -->
+            <ion-option value="电梯">电梯</ion-option>
+            <ion-option value="水管">水管</ion-option>
+            <ion-option value="暖气">暖气</ion-option>
+            <ion-option value="护栏围墙">护栏围墙</ion-option>
+            <ion-option value="门窗">门窗</ion-option>
+            <ion-option value="灯具">灯具</ion-option>
+            <ion-option value="其他">其他</ion-option>
+          </ion-select>
   </ion-item>
 
   
@@ -27,14 +41,17 @@
   </ion-item>
   
   <ion-item> 
-    <ion-textarea type="text" placeholder = "备注:" rows="6" cols="20" [(ngModel)]="description" onblur="if(this.value == '')this.value='3号楼3单元3楼灯坏了！';"
-     onclick="if(this.value == '3号楼2单元3楼窗户坏了！')this.value=''" value='3号楼2单元3楼窗户坏了！'> 
+    <ion-textarea  type="text" placeholder = "备注:" rows="6" cols="20" [(ngModel)]="description" id="conl" > 
+      <!-- onblur="if(this.value == '')this.value='3号楼3单元3楼灯坏了！';"
+     onclick="if(this.value == '3号楼2单元3楼窗户坏了！')this.value=''" value='3号楼2单元3楼窗户坏了！' -->
     </ion-textarea> 
+
   </ion-item>
+  <!-- <ion-textarea name="dummyText" [(ngModel)]="dummyText" autosize (ionBlur)="blurInput()" (ionFocus)="focusInput()"></ion-textarea> -->
+
   
   
   <button ion-button round  color="#ffcc33;" style="width:70%;margin-left:7%;" class="btn3" (click)="commit()" >提交信息</button>
   </ion-list>
-
 
 </ion-content>

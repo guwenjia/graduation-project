@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 import { HttpClient,} from "@angular/common/http";
 import { Http,Jsonp, Headers} from '@angular/http'; 
 import { ModalController } from 'ionic-angular';
 import {CommdetailPage} from '../commdetail/commdetail';
 import { CommcreatPage } from '../commcreat/commcreat';
-/**
- * Generated class for the CommunityPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TabsPage } from '../tabs/tabs';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -18,18 +14,18 @@ import { CommcreatPage } from '../commcreat/commcreat';
   templateUrl: 'community.html',
 })
 export class CommunityPage {
-  arr=[];
+  val=[];
   arr1=[];
   index=0;
 
   ionViewWillEnter() {
     this.getCon();
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,public jsonp:Jsonp,public modalCtrl:ModalController,) {
+  constructor(public appCtrl:App,public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,public jsonp:Jsonp,public modalCtrl:ModalController,) {
   }
 
   go(i){
-    this.navCtrl.push('CommdetailPage',{index:this.arr[i].id});
+    this.navCtrl.push('CommdetailPage',{index:this.val[i].id});
   }
 
   ionViewDidLoad() {
@@ -37,13 +33,17 @@ export class CommunityPage {
   }
   getCon(){
       this.http.get('http://140.143.6.115:80/home/topic/index?state=published' ).subscribe( data=>{ 
-      this.arr=(data['data']);
-      console.log(this.arr);
-      /*  for(var i=0;i<this.arr.length;i++){
-         this.arr[i].cover='http://140.143.6.115:80/'+data[i].cover;}
-       */}); 
+      this.val=(data['data']);
+      console.log(this.val);
+      }); 
   }
   add(){
-    this.navCtrl.push(CommcreatPage);
+    
+    //this.navCtrl.push(CommcreatPage);
+    this.appCtrl.getRootNavs()[0].setRoot(CommcreatPage);
+  }
+  back(){
+
+    this.appCtrl.getRootNav().setRoot(HomePage);
   }
 }

@@ -1,9 +1,10 @@
  import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 import { HttpClient,} from "@angular/common/http";
 import { Http,Jsonp, Headers} from '@angular/http'; 
 import { ModalController } from 'ionic-angular';
 import {LifehousePage} from '../lifehouse/lifehouse';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the LifeservicesPage page.
  *
@@ -20,7 +21,7 @@ export class LifeservicesPage {
   ionViewWillEnter() {
     this.getCon();
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,public jsonp:Jsonp,public modalCtrl:ModalController,) {
+  constructor(public appCtrl:App,public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,public jsonp:Jsonp,public modalCtrl:ModalController,) {
   }
   arr=[];
   index=[0,1,2];
@@ -54,8 +55,6 @@ export class LifeservicesPage {
         else{this.state[j]=this.statelist[1]}
         
      } */
-
-
     
   } );
   }
@@ -65,8 +64,11 @@ export class LifeservicesPage {
 
 
   openlist(){
-    this.navCtrl.push(LifehousePage);
+    //this.navCtrl.push(LifehousePage);
+    this.appCtrl.getRootNavs()[0].setRoot(LifehousePage);
   }
-
+  back(){
+    this.appCtrl.getRootNavs()[0].setRoot(HomePage);
+  }
 
 }

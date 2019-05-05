@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController,App, } from 'ionic-angular';
 import { Http,Jsonp,Headers,RequestOptions } from "@angular/http"; 
 import { HttpClient, } from '@angular/common/http';
 import { AlertController } from 'ionic-angular';
 import {RepairPage} from '../repair/repair';
-/**
- * Generated class for the RepaircommitPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+import {MultiPickerModule} from 'ion-multi-picker';
+import {HomeDataProvider} from "../../providers/home-data/home-data";
+import * as $ from 'jquery';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -17,23 +16,26 @@ import {RepairPage} from '../repair/repair';
   templateUrl: 'repaircommit.html',
 })
 
+
 export class RepaircommitPage {
   userid;
   part;
   place;
-  description;
+  description:'';
+  dummyText:'';
   arr=[];
   arrived_at:string;
-
-  
+  cityColumns: any[];
 
 
 ionViewWillEnter() {
   /* this.getdate(); */
 }
 
+
 constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,
-    public http:Http,public jsonp:Jsonp,) {
+    public http:Http,public jsonp:Jsonp,public homeDataProvider: HomeDataProvider,public appCtrl:App,) {
+      this.cityColumns = this.homeDataProvider.cities;
 }
 /* getdate(){
   this.arrived_at = new Date().toISOString();
@@ -47,9 +49,7 @@ constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavC
     });
      prompt.present();
    }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RepaircommitPage');
-  }
+
   commit(){
     
     this.userid=localStorage.getItem('userid');
@@ -65,7 +65,7 @@ constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavC
         /* 'image':'111', */
         'description':this.description,
         'repair_time':this.arrived_at}))
-    .subscribe( 
+    .subscribe(  
       data=>{
 
         console.log(data);
@@ -73,9 +73,13 @@ constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavC
         console.log(this.arr);
         if(this.arr['code']==0){
           this.showPrompt();
-          this.navCtrl.push(RepairPage);
+          //this.navCtrl.pop();
         }
 
   })
+  
+}
+back(){
+  this.appCtrl.getRootNav().setRoot(RepairPage);
 }
 }

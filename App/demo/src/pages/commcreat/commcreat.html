@@ -1,12 +1,12 @@
-<!--
-  Generated template for the CommcreatPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
+      <ion-buttons begin class="but1">
+          <button ion-button icon-only color="royal" (click)="back()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
     <ion-title>发表动态</ion-title>
   </ion-navbar>
 
@@ -14,12 +14,32 @@
 
 
 <ion-content padding>
-  <ion-item> 
+    <form id="form1" onsubmit="return false" action="http://140.143.6.115/admin/notice/store" method="POST" enctype="multipart/form-data">
+  <!-- <ion-item> 
     <ion-label>记录身边的美好……</ion-label></ion-item>
   <ion-item>
     <ion-textarea rows="6"cols ="20" readonly="flase" onblur="if(this.value == '')this.value='新开的咖啡店太温馨啦！';" 
     onclick="if(this.value == '新开的咖啡店太温馨啦！')this.value='';"  [(ngModel)]="textcontent" value='新开的咖啡店太温馨啦'> </ion-textarea > 
-  </ion-item>
-  <button ion-button round  color="#ffcc33;" 
-  style="width:70%;margin-left:7%;" class="btn3" (click)="commit()" >发布</button>
+  </ion-item> -->
+  <!--pic-->
+  <!-- <div class="header-image" tappable 
+  [ngStyle]="{'background-image': 'url('+avatar+')'}" (click)="presentActionSheet()"></div> -->
+  
+  <!-- <form action="login" method="post"> -->
+    <!-- <input type="text" [(ngModel)]="textcontent" value="温馨的环境！"> -->
+    
+    <!-- <textarea type="txt" name="content" id="con1" rows="6" cols="50" readonly="flase" autofocus>
+        长路浩浩荡荡 万事尽可期待</textarea> -->
+    
+    
+    <div id="con1" contenteditable placeholder='请输入文字' class="input" autofocus="true"></div>    
+    <label for="file" id="file1">
+      <div class="logobtn">上传图片</div>
+    </label>
+    <input type="file" name="file" id="file" style="display: none" (change)="setLogo()">
+
+
+ 
+    <button ion-button round  color="#ffcc33;" style="width:70%;margin-left:7%;" class="btn3" (click)="commit()" >发布</button> 
+   </form>
 </ion-content>

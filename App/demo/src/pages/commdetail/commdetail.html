@@ -51,18 +51,27 @@
           </ion-row>
           <p>————————————————————————————</p>
 
-          <ion-list *ngFor='let item of arr2;let i = index;'>
+<!--           <ion-list *ngFor='let item of arr2;let i = index;'>
             <ion-item>
                <strong>@{{item.users.username}} :</strong>{{item.content}}
             </ion-item>
-          </ion-list>
+          </ion-list> -->
+
+          <ion-item *ngFor='let item of arr2;'>
+              <ion-avatar item-start>
+                <!-- <img src="{{item.userPhoto}}"> -->
+                <img src="../assets/imgs/touxiang1.jpg"><!--用户头像-->
+              </ion-avatar>
+               <span>@{{item.users.username}} :</span>
+              <p>{{item.content}}</p>
+          </ion-item>
+    
       </ion-card-content > 
     </ion-card > 
+
+  <ion-item>
+    <label>评论：</label>
+    <ion-input ></ion-input>
   
-
-
-
-
-
-
+</ion-item>
 </ion-content>

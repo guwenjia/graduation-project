@@ -21,7 +21,7 @@ export class LifehousePage {
 
 
   constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,
-    public http:Http,public jsonp:Jsonp,) {
+    public http:Http,public jsonp:Jsonp,public appCtrl:App) {
   }
   userid;
   place;
@@ -53,8 +53,12 @@ export class LifehousePage {
   } */
   commit(){
     this.userid=localStorage.getItem('userid');
-    this.http.post('http://140.143.6.115:80/home/service/store',({'user_id':this.userid,'type':this.gaming,'user_address':'111'/* this.place */,
-    'arrived_at':this.arrived_at,'description':this.description}))
+    this.http.post('http://140.143.6.115:80/home/service/store',
+    ({'user_id':this.userid,
+    'type':this.gaming,
+    'user_address':this.place,
+    'arrived_at':this.arrived_at,
+    'description':this.description}))
     .subscribe( 
       data=>{
 
@@ -63,9 +67,17 @@ export class LifehousePage {
         console.log(this.arr);
         if(this.arr['code']==0){
           this.showPrompt();
-          this.navCtrl.push(LifeservicesPage);
+          //this.navCtrl.pop();
         }
 
   })
 }
+back(){
+  this.appCtrl.getRootNavs()[0].setRoot(LifeservicesPage);
+  //this.navCtrl.push(CommunityPage);
+  //  this.navCtrl.push(LifeservicesPage).then(() => {
+  //   const startIndex = this.navCtrl.getActive().index - 1;
+  //    this.navCtrl.remove(startIndex, 1);
+  //  });
+} 
 }

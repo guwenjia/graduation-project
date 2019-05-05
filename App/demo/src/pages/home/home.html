@@ -35,11 +35,11 @@
     </ion-slide>
   </ion-slides>
     <!--轮播图-->
-    <!--<ion-slides class="slide" loop="true" pager="true" *ngIf="len>=1" autoplay="1000">
+    <ion-slides class="slide" loop="true" pager="true" *ngIf="len>=1" autoplay="1000">
         <ion-slide  *ngFor="let item of lunbo;let i = index;" class="slide">
           <img src="{{lunbo[i].sImg}}" (click)="content(lunbo[i].id)">
         </ion-slide>
-    </ion-slides>-->
+    </ion-slides>
 </ion-header>
 
 
@@ -64,15 +64,22 @@
   </div>
 -->
 
-  <ion-list class="index-list" (click)="content()" >
-    <h6 style="padding-left:16px;margin:5px 0px;">香港 | 拿上这份徒步攻略,去全球最佳步道之一远足吧</h6>
+  <ion-list class="index-list" >
+    
+    
+    <h6 style="padding-left:16px;margin:15px 0px;padding-top:10px;">小区公告 | 五一出行安全通知</h6>
     <ion-item>
       <ion-thumbnail item-start>
         <img src="assets/imgs/slide2.jpg" class="thumb-img">
       </ion-thumbnail>
-      <p class="p1">不要以为这又是一次shopping之旅</p>
-      <p class="p2"><ion-icon ios="ios-eye" md="md-eye"></ion-icon>227<button ion-button outline item-end  color="danger" style="float:right">攻略</button></p>
+      <p class="p1">尊敬的业主：
+                  您好！
+                  五一假期即将来临，阳光美第管家服务中心全体工作人员祝您节日快乐！
+          为了让您度过一个温馨、舒适、安全的节日，管家服务中心特别提醒您注意以下几点：</p>
+      <p class="p2"><ion-icon ios="ios-eye" md="md-eye"></ion-icon><button ion-button outline item-end  color="danger" style="float:right">查看</button></p>
     </ion-item>
+
+
   </ion-list>
 <!--   
   <ion-list class="index-list" (click)="content()">

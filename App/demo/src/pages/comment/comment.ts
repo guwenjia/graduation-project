@@ -16,7 +16,7 @@ import { AlertController } from 'ionic-angular';
   selector: 'page-comment',
   template:/* Url: 'comment.html', */
     
-    '<ion-textarea autofocus placeholder = "请输入评论:" rows="6" cols="20" [(ngModel)]="comment" (ionInput)="descript($event)" value="环境特别好！" > </ion-textarea>  <button ion-button round  color="#ffcc33;" style="width:70%;margin-left:7%;" class="btn3" (click)="commit()" small>发表评论</button>'
+    '<ion-textarea autofocus placeholder = "请输入评论:" rows="6" cols="20" [(ngModel)]="comment" (ionInput)="descript($event)" value="真棒！" > </ion-textarea>  <button ion-button round  color="#ffcc33;" style="width:70%;margin-left:7%;" class="btn3" (click)="commit()" small>发表评论</button>'
 
 })
 export class CommentPage {
@@ -45,7 +45,10 @@ export class CommentPage {
 
   commit(){
     this.userid=localStorage.getItem('userid');
-    this.http.post('http://140.143.6.115:80/home/comment/store',({'user_id':this.userid,'content':this.comment,'topic_id':this.id}))
+    this.http.post('http://140.143.6.115:80/home/comment/store',({
+      'user_id':this.userid,
+      'content':this.comment,
+      'topic_id':this.id}))
     .subscribe( 
       data=>{
 

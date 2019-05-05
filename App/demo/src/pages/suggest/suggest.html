@@ -1,12 +1,12 @@
-<!--
-  Generated template for the SuggestPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
+      <ion-buttons begin class="but1">
+          <button ion-button icon-only color="royal" (click)="back()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
     <ion-title>投诉建议</ion-title>
     <ion-buttons right (click)="openrepair()">
       <button ion-button>
@@ -28,7 +28,6 @@
       <p class="p1">详情：{{item['description']}}</p>
       <p class="p1">进度：{{item['state']}}</p>
 
-      <!-- <button ion-button outline item-end  color="primary"  style="float:right">问答</button> -->
     </ion-item>
   </ion-list>
 </ion-content>

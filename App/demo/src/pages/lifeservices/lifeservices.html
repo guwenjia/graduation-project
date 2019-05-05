@@ -7,21 +7,20 @@
 <ion-header>
 
   <ion-navbar>
+      <ion-buttons begin class="but1">
+          <button ion-button icon-only color="royal" (click)="back()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
     <ion-title>生活服务列表页</ion-title>
  
-
-      <div class="selectlist">
         <ion-buttons right (click)="openlist()">
             <button ion-button>
                 <ion-icon name="add-circle" color="dark" ></ion-icon>
             </button>
         </ion-buttons> 
- <!--       <ion-select multiple = "true" cancelText = "Nah" okText = "好的！"> 
-         <ion-option value = "bacon" (click)="openlist()">代取快递</ion-option>
-         <ion-option  value = "xcheese" >上门洗车</ion-option > 
-         <ion-option  value = "peppers" >家庭保洁</ion-option > 
-       </ion-select>  -->
-      </div>
+
+      
  </ion-navbar>
 </ion-header>
 

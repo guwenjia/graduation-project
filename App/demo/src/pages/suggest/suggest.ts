@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 import { HttpClient,} from "@angular/common/http";
 import { Http,Jsonp, Headers} from '@angular/http'; 
 import { ModalController } from 'ionic-angular';
 import {RepaircommitPage} from '../repaircommit/repaircommit';
 import {SuggestcommitPage} from '../suggestcommit/suggestcommit';
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the SuggestPage page.
  *
@@ -26,7 +27,7 @@ export class SuggestPage {
     this.getCon();
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,public jsonp:Jsonp,public modalCtrl:ModalController,) {
+  constructor(public appCtrl:App,public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,public jsonp:Jsonp,public modalCtrl:ModalController,) {
   }
   getCon(){ 
     this.user=localStorage.getItem('userid');
@@ -40,6 +41,9 @@ export class SuggestPage {
   }
 
   openrepair(){
-    this.navCtrl.push(SuggestcommitPage);
+    this.appCtrl.getRootNavs()[0].setRoot(SuggestcommitPage);
+  }
+  back(){
+    this.appCtrl.getRootNavs()[0].setRoot(TabsPage);
   }
 }

@@ -27,7 +27,8 @@ export class SuggestcommitPage {
   arrived_at:string;
 
   constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,
-    public http:Http,public jsonp:Jsonp,) {
+    public http:Http,public jsonp:Jsonp,public appCtrl:App) {
+      this.navParams.get('userid');
   }
   getdate(){
     this.arrived_at = new Date().toISOString();
@@ -57,10 +58,13 @@ export class SuggestcommitPage {
         console.log(this.arr);
         if(this.arr['code']==0){
           this.showPrompt();
-          this.navCtrl.push(SuggestPage);
+          //this.navCtrl.pop();
         }
 
   })
+}
+back(){
+  this.appCtrl.getRootNavs()[0].setRoot(SuggestPage);
 }
 
 }

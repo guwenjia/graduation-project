@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { HttpClient,} from "@angular/common/http";
 import { Http,Jsonp, Headers} from '@angular/http'; 
 import { ModalController } from 'ionic-angular';
 import {RepaircommitPage} from '../repaircommit/repaircommit';
+import { TabsPage } from '../tabs/tabs';
 
 
 @IonicPage()
@@ -18,7 +19,8 @@ export class RepairPage {
   ionViewWillEnter() {
     this.getCon();
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,public jsonp:Jsonp,public modalCtrl:ModalController,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,
+    public jsonp:Jsonp,public modalCtrl:ModalController,public appCtrl:App) {
   
   }
 
@@ -38,6 +40,9 @@ export class RepairPage {
   }
 
   openrepair(){
-    this.navCtrl.push(RepaircommitPage);
+    this.appCtrl.getRootNavs()[0].setRoot(RepaircommitPage);
+  }
+  back(){
+    this.appCtrl.getRootNav().setRoot(TabsPage);
   }
 }

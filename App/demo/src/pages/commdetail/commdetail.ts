@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient,} from "@angular/common/http";
 import { Http,Jsonp, Headers} from '@angular/http'; 
 import { ModalController,PopoverController } from 'ionic-angular';
-import { CommentPage } from '../comment/comment';
+// import { CommentPage } from '../comment/comment';
 
 /**
  * Generated class for the CommdetailPage page.
@@ -47,7 +47,7 @@ export class CommdetailPage {
   //点击评论按钮
   openPopover(e){
     console.log('111');
-    let popover = this.popoverCtrl.create(CommentPage
+    let popover = this.popoverCtrl.create('CommentPage'
     ,{key1:this.id});
     popover.present({
       ev: e

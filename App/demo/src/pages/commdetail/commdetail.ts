@@ -28,7 +28,7 @@ export class CommdetailPage {
   arr2=[];
   idd;
   ionViewWillEnter(){
-    this.http.get('http://140.143.6.115:80/home/topic/show?id='+this.id).subscribe( data=>{ 
+    this.http.get('http://188.131.192.194:83/home/topic/show?id='+this.id).subscribe( data=>{ 
       //console.log(typeof(data));
       //console.log(data);
       this.arr=(data['data']);
@@ -36,7 +36,7 @@ export class CommdetailPage {
       //console.log(this.arr);
 
     })
-    this.http.get('http://140.143.6.115:80/home/comment/index?state=published&topic_id='+this.id).subscribe( data=>{
+    this.http.get('http://188.131.192.194:83/home/comment/index?state=published&topic_id='+this.id).subscribe( data=>{
       console.log(data);
       this.arr2=(data['data']);
       console.log('pinglun');
@@ -53,9 +53,12 @@ export class CommdetailPage {
       ev: e
       });
   }
-
+ back(){
+    this.navCtrl.pop();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CommdetailPage');
   }
 
+ 
 }

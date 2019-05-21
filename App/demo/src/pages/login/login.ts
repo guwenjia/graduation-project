@@ -23,7 +23,9 @@ export class LoginPage {
     this.judge();
   }
 
-  constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,public http:Http,public jsonp:Jsonp) {
+  constructor(public app:App,public modalCtrl:ModalController,
+    public navCtrl: NavController, public navParams: NavParams,
+    private alertCtrl: AlertController ,public http:Http,public jsonp:Jsonp) {
 
   }
   userna:string;
@@ -73,7 +75,7 @@ request(){
        return;
   } */
          //JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串
-   this.http.post('http://140.143.6.115:80/auth/login',/* JSON.stringify */({'username':this.userna,'password':this.pas}))
+   this.http.post('http://188.131.192.194:83/auth/login',/* JSON.stringify */({'username':this.userna,'password':this.pas}))
     .subscribe( 
       data=>{
         console.log(data['_body']);

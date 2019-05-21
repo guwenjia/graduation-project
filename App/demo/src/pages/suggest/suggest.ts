@@ -31,7 +31,7 @@ export class SuggestPage {
   }
   getCon(){ 
     this.user=localStorage.getItem('userid');
-    this.http.get('http://140.143.6.115:80/home/suggest/index?user_id='+this.user)
+    this.http.get('http://188.131.192.194:83/home/suggest/index?user_id='+this.user)
     .subscribe( data=>{ 
 
       this.arr=(data['data']);

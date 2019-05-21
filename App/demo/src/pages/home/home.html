@@ -6,14 +6,14 @@
       </button>
     </ion-buttons>
 
-    <ion-title text-center (click)="gettabs()">Ilink</ion-title>
+    <ion-title text-center >Ilink</ion-title>
 
     <!--<ion-title text-center>
       <ion-searchbar [(ngModel)]="searchInput" [showCancelButton]="shouldShowCancel" placeholder="搜索攻略、游记、答案" class="search"></ion-searchbar>
     </ion-title>
     -->
     <ion-buttons right>
-      <button ion-button (click)="openlist()">
+      <button ion-button >
        <ion-icon ios="ios-notifications" md="md-notifications" color="dark"></ion-icon>
       </button>
     </ion-buttons>
@@ -22,24 +22,24 @@
   <!--轮播图-->
   <ion-slides class="slide" loop="true" pager="true">
     <ion-slide>
-      <img src="assets/imgs/slide1.png" (click)="content()">
+      <img src="assets/imgs/slide1.png" >
     </ion-slide>    
     <ion-slide>
-      <img src="assets/imgs/slide4.jpg" (click)="content()">
+      <img src="assets/imgs/slide4.jpg" >
     </ion-slide>
     <ion-slide>
-      <img src="assets/imgs/slide3.jpg" (click)="content()">
+      <img src="assets/imgs/slide3.jpg" >
     </ion-slide>
     <ion-slide>
-      <img src="assets/imgs/slide2.jpg" (click)="content()">
+      <img src="assets/imgs/slide2.jpg" >
     </ion-slide>
   </ion-slides>
     <!--轮播图-->
-    <ion-slides class="slide" loop="true" pager="true" *ngIf="len>=1" autoplay="1000">
+    <!-- <ion-slides class="slide" loop="true" pager="true" *ngIf="len>=1" autoplay="1000">
         <ion-slide  *ngFor="let item of lunbo;let i = index;" class="slide">
           <img src="{{lunbo[i].sImg}}" (click)="content(lunbo[i].id)">
         </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
 </ion-header>
 
 

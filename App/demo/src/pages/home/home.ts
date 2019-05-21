@@ -11,6 +11,7 @@ import { AnnouncementPage } from '../announcement/announcement';//小区公告pa
 import {RepairPage} from '../repair/repair';//坏事报修
 import {SuggestPage} from '../suggest/suggest';
 import {TabsPage} from '../tabs/tabs';
+import { LoginPage } from '../login/login';
 // import { HttpClient, } from '@angular/common/http';
 // import { HttpModule,JsonpModule,} from "@angular/http";
 // import { Http,Jsonp,Headers,RequestOptions } from "@angular/http"; 
@@ -175,6 +176,9 @@ constructor(public platform: Platform,
 }
 gettabs(){
   this.navCtrl.setRoot(TabsPage);
+  if(!localStorage.getItem('userid')){
+    this.appCtrl.getRootNavs()[0].setRoot(LoginPage);
+  }
 }  
 
 

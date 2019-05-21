@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, AlertController } from 'ionic-angular';
 import { HttpClient,} from "@angular/common/http";
 import { Http,Jsonp, Headers} from '@angular/http'; 
 import { ModalController } from 'ionic-angular';
 import { SettingPage } from '../setting/setting';
+import { LoginPage } from '../login/login';
 
 
 
@@ -21,6 +22,7 @@ export class MyPage {
   type=['代取快递','家庭保洁','上门洗车'];
   typetitle=[];
   index11=[0,1,2];
+  
   ionViewWillEnter() {
     this.getCon();
     this.getrepair();
@@ -28,15 +30,27 @@ export class MyPage {
     this.getservice()
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient,
-    public jsonp:Jsonp,public modalCtrl:ModalController,) {
+    public jsonp:Jsonp,public modalCtrl:ModalController,public appCtrl:App,private alertCtrl: AlertController,) {
   }
-
+  showPrompt0() {
+    let prompt = this.alertCtrl.create({
+      message: "请先登录",
+   
+      buttons: ["关闭"]
+    });
+     prompt.present();
+   }
   getCon(){ 
     this.user=localStorage.getItem('userid');
-    this.http.get('http://140.143.6.115:80/home/user/show?id='+this.user)
+    if(!localStorage.getItem('userid')){
+      this.showPrompt0();
+      this.appCtrl.getRootNavs()[0].setRoot(LoginPage);
+    }
+    this.http.get('http://188.131.192.194:83/home/user/show?id='+this.user)
     .subscribe( data=>{ 
 
       this.arr=(data['data']);
+   
       console.log(this.arr);
     })
 
@@ -44,7 +58,7 @@ export class MyPage {
 
   getrepair(){ 
     this.user=localStorage.getItem('userid');
-    this.http.get('http://140.143.6.115:80/home/repair/index?user_id='+this.user)
+    this.http.get('http://188.131.192.194:83/home/repair/index?user_id='+this.user)
     .subscribe( data=>{ 
 
       this.arr1=(data['data']);
@@ -55,7 +69,7 @@ export class MyPage {
 
   getsuggest(){ 
     this.user=localStorage.getItem('userid');
-    this.http.get('http://140.143.6.115:80/home/suggest/index?user_id='+this.user)
+    this.http.get('http://188.131.192.194:83/home/suggest/index?user_id='+this.user)
     .subscribe( data=>{ 
 
       this.arr2=(data['data']);
@@ -66,7 +80,7 @@ export class MyPage {
 
   getservice(){
     this.user=localStorage.getItem('userid');
-    this.http.get('http://140.143.6.115:80/home/service/index?user_id='+this.user)
+    this.http.get('http://188.131.192.194:83/home/service/index?user_id='+this.user)
     .subscribe( data=>{ 
 
       this.arr3=(data['data']);
@@ -82,7 +96,9 @@ export class MyPage {
   })
 }
 setting(){
-  this.navCtrl.push(SettingPage);
+  this.appCtrl.getRootNavs()[0].setRoot(SettingPage);
+  // let profileModal = this.modalCtrl.create(SettingPage);
+  // profileModal.present();
 }
 
 

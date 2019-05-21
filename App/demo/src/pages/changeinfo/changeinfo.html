@@ -1,18 +1,46 @@
-<!--
-  Generated template for the ChangeinfoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>changeinfo</ion-title>
+      <ion-buttons begin class="but1">
+          <button ion-button icon-only color="royal" (click)="back()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
+      <ion-title text-center><span style="font-weight: lighter;">修改个人信息</span></ion-title>
+      <ion-buttons right>
+          <button ion-button (click)="send()">
+            <span>保存</span>
+          </button>
+      </ion-buttons>
   </ion-navbar>
-
 </ion-header>
+<ion-content>
+  <div class="c-top">
+      <div class="c-bg" style="background-image: url(assets/imgs/288.jpg)">
+      </div>
+      <div class="user-head">
+          <img src="../assets/imgs/userlogo.jpg"  id="logo" >
+        <label for="file">
+          <div class="logobtn">设置头像</div>
+        </label>
+          <input type="file" id="file" style="display: none" (change)="setLogo()" >      
+      </div>
+  </div>
+  <ion-list class="c-list">
 
+      <ion-item>
+          <ion-label>简介</ion-label>
+          <ion-input type="text" [(ngModel)]="introduction"></ion-input>
+      </ion-item>
 
-<ion-content padding>
+      <ion-item>
+          <ion-label>电话</ion-label>
+          <ion-input type="tel" [(ngModel)]="phone"></ion-input>
+      </ion-item>
 
+      <ion-item>
+          <ion-label>住址</ion-label>
+          <ion-input type="text" [(ngModel)]="address"></ion-input>
+      </ion-item>
+  </ion-list>
 </ion-content>
+

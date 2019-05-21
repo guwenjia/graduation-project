@@ -1,9 +1,4 @@
-<!--
-  Generated template for the MyPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -22,7 +17,7 @@
 <ion-content>
     <div class="backcard" style="background-image: url(assets/imgs/288.jpg)">
       <div class="touxiang">
-          <img src="assets/imgs/touxiang1.jpg"><!--用户头像-->
+          <img src="{{arr['avatar_url']}}" onerror="this.src='../assets/imgs/touxiang1.jpg'">
       </div>
       <h3>{{arr['username']}}</h3>
     </div>

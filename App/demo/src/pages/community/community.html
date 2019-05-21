@@ -28,7 +28,7 @@
 <ion-card *ngFor='let item of val;let i = index;' (click)='go(i)'>
   <ion-item>
     <ion-avatar item-start class="touxiang">
-        <img src="{{item.users.cover}}" onerror="this.src='../assets/imgs/touxiang1.jpg'" ><!--用户头像-->
+        <img src="{{item.users.avatar_url}}" onerror="this.src='../assets/imgs/touxiang1.jpg'" ><!--用户头像-->
     </ion-avatar>
     <h2>&nbsp;&nbsp;&nbsp;{{item.users.username}}</h2>
 <!--地点<button ion-button icon-left clear small >

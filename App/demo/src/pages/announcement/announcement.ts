@@ -29,14 +29,15 @@ export class AnnouncementPage {
   go(idx){
       console.log(this.arr[idx].id);
       //localStorage.setItem('title',this.arr[idx].title);
-       this.navCtrl.push('AnnoundetailPage',{myid:this.arr[idx].id});//在navCtrl.push的同时就传递给详情页组件数据，同时取名myid
+       this.navCtrl.push('AnnoundetailPage',{myid:this.arr[idx].id});
+       //在navCtrl.push的同时就传递给详情页组件数据，同时取名myid
        
      // let profileModal = this.modalCtrl.create('announdetailPage',{id:this.arr[idx].id});
      // profileModal.present();  
     }
   //获取列表
    getCon(){
-    this.http.get('http://140.143.6.115:80/home/notice/index?state=published' ).subscribe( data=>{ 
+    this.http.get('http://188.131.192.194:83/home/notice/index?state=published' ).subscribe( data=>{ 
       this.arr=(data['data']);
       console.log(this.arr);
     } );

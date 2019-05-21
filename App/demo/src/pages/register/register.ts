@@ -33,7 +33,7 @@ export class RegisterPage {
  
   goAbo(){
    // $('#reg,#log').attr("disabled","true");
-  let url:string='http://140.143.6.115:80/auth/register';
+  let url:string='http://188.131.192.194:83/auth/register';
   
   this.http.post(url,{
   "username": this.username,

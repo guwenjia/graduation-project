@@ -33,6 +33,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MultiPickerModule } from 'ion-multi-picker';
 import { HomeDataProvider } from '../providers/home-data/home-data';
+import { ChangeinfoPage } from '../pages/changeinfo/changeinfo';
 
 //  import { ImagePicker } from '@ionic-native/image-picker/ngx';
 //  import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
@@ -71,7 +72,7 @@ import { HomeDataProvider } from '../providers/home-data/home-data';
     SuggestcommitPage,////投诉建议提交信息
     CommcreatPage,//发表动态页
     // CommentPage,
-    
+    ChangeinfoPage,
   ],
   imports: [
     BrowserModule,
@@ -111,6 +112,7 @@ import { HomeDataProvider } from '../providers/home-data/home-data';
     SuggestcommitPage,
     CommcreatPage,
     // CommentPage,
+    ChangeinfoPage,
   ],
   providers: [
     

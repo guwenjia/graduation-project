@@ -32,7 +32,7 @@ export class CommunityPage {
     console.log('ionViewDidLoad CommunityPage');
   }
   getCon(){
-      this.http.get('http://140.143.6.115:80/home/topic/index?state=published' ).subscribe( data=>{ 
+      this.http.get('http://188.131.192.194:83/home/topic/index?state=published' ).subscribe( data=>{ 
       this.val=(data['data']);
       console.log(this.val);
       }); 
@@ -40,7 +40,9 @@ export class CommunityPage {
   add(){
     
     //this.navCtrl.push(CommcreatPage);
-    this.appCtrl.getRootNavs()[0].setRoot(CommcreatPage);
+     this.appCtrl.getRootNavs()[0].setRoot(CommcreatPage);
+    // let profileModal = this.modalCtrl.create(CommcreatPage);
+    // profileModal.present();
   }
   back(){
 

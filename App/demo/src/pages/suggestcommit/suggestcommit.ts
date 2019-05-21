@@ -48,7 +48,7 @@ export class SuggestcommitPage {
   commit(){
     
     this.userid=localStorage.getItem('userid');
-    this.http.post('http://140.143.6.115:80/home/suggest/store',({'user_id':this.userid,'type':this.part,'address':this.place/* this.place */,
+    this.http.post('http://188.131.192.194:83/home/suggest/store',({'user_id':this.userid,'type':this.part,'address':this.place/* this.place */,
     'image':'111','description':this.description,}))
     .subscribe( 
       data=>{

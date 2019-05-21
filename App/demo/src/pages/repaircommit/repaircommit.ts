@@ -58,7 +58,7 @@ constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavC
     console.log(this.place);
     console.log(this.description);
     console.log(this.arrived_at);
-    this.http.post('http://140.143.6.115:80/home/repair/store',({
+    this.http.post('http://188.131.192.194:83/home/repair/store',({
         'user_id':this.userid,
         'part':this.part,
         'address':this.place/* this.place */,

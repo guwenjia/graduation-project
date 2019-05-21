@@ -45,7 +45,7 @@ export class CommentPage {
 
   commit(){
     this.userid=localStorage.getItem('userid');
-    this.http.post('http://140.143.6.115:80/home/comment/store',({
+    this.http.post('http://188.131.192.194:83/home/comment/store',({
       'user_id':this.userid,
       'content':this.comment,
       'topic_id':this.id}))

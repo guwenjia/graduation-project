@@ -51,6 +51,7 @@ export class CommcreatPage {
   }
 
 commit(){
+    let userid=localStorage.getItem('userid');
      //let content = (<HTMLInputElement>document.getElementById('con1'));
      let file=(<HTMLInputElement>document.getElementById('file')).files[0];
      let content =(<HTMLInputElement>document.getElementById('con1')).innerText;
@@ -59,6 +60,7 @@ commit(){
      this.cover=file;
      var temp="";
      let formData = new FormData();
+      formData.append('user_id',userid);
       formData.append('cover',file);
       formData.append('content',content);
       console.log(formData);
@@ -67,7 +69,7 @@ commit(){
     //几个参数需要注意一下
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-        url: "http://140.143.6.115:80/home/topic/store" ,//url
+        url: "http://188.131.192.194:83/home/topic/store" ,//url
         data: formData,//$('#form1').serialize(),
         contentType: false,  
         processData: false,
@@ -89,7 +91,7 @@ back(){
   this.appCtrl.getRootNavs()[0].setRoot(TabsPage);
   //this.navCtrl.parent.selector(1);
   //this.navCtrl.push(CommunityPage);
-   
+  //this.navCtrl.pop();
 }  
 
 

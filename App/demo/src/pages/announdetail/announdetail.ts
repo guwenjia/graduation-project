@@ -30,7 +30,7 @@ export class AnnoundetailPage {
     console.log('ionViewDidLoad AnnoundetailPage');
   }
   ionViewWillEnter(){
-      this.http.get('http://140.143.6.115:80/home/notice/show?id='+this.myid).subscribe( data=>{ 
+      this.http.get('http://188.131.192.194:83/home/notice/show?id='+this.myid).subscribe( data=>{ 
       this.arr=(data['data']);
       console.log(this.arr);
     } );

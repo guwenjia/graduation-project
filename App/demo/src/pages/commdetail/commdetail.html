@@ -7,8 +7,13 @@
 
 
 <ion-header>
-
+  
   <ion-navbar>
+      <ion-buttons left class="but1" style="position:relative;left:-25px" (click)="back()">
+          <button ion-button icon-only color="royal" >
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
     <ion-title>社区动态</ion-title>
   </ion-navbar>
 
@@ -19,7 +24,7 @@
     <ion-card> 
       <ion-card-header> 
           
-          <ion-card-title><!-- {{arr.users.username}} --> aaa</ion-card-title > 
+          <!-- <ion-card-title></ion-card-title >  -->
       </ion-card-header > 
       <ion-card-content> 
         <p class="publishtime">{{arr.published_at}}</p>
@@ -60,7 +65,7 @@
           <ion-item *ngFor='let item of arr2;'>
               <ion-avatar item-start>
                 <!-- <img src="{{item.userPhoto}}"> -->
-                <img src="../assets/imgs/touxiang1.jpg"><!--用户头像-->
+                <img src="{{item.users.avatar_url}}"><!--用户头像-->
               </ion-avatar>
                <span>@{{item.users.username}} :</span>
               <p>{{item.content}}</p>
